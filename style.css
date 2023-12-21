@@ -1,0 +1,392 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: rgb(55, 104, 112);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('Assets/bamenda.jpg');
+    background-size: cover;
+}
+
+
+li,
+a,
+p,
+button {
+    font-weight: 500;
+    font-size: 16px;
+    color: #2e3638;
+    text-decoration: none;
+}
+
+/*Start Styling header elements*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10%;
+    background-color: #ffffff;
+
+}
+
+.logo {
+    cursor: pointer;
+    font-size: 36px;
+    color: cornflowerblue;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #72cce2;
+    font-size: 0-large;
+}
+
+/*End Styling header elements*/
+
+
+/*Start body styling*/
+main {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100px;
+    padding: 50px;
+}
+
+/*End body styling*/
+.wrapper {
+    display: flex;
+    width: 1200px;
+    min-width: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+
+}
+
+
+.sidebar {
+    width: 30%;
+    min-height: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+
+}
+
+.weather-symbols-meaning {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    column-gap: 25px;
+    row-gap: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.weather-symbols-meaning>div {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.weather-symbols-meaning>div>img {
+    height: 80%;
+}
+
+#current-location-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.current-location-image {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.search input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: rgba(0, 0, 0, 0.911);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.search button {
+    min-width: 40px;
+    height: 40px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: cornflowerblue;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+}
+
+.search-button:hover {
+    opacity: 0.7;
+}
+
+.search-button:active {
+    background-color: white;
+}
+
+.temperature {
+    display: flex;
+    padding: 20px;
+}
+
+.temperature #temp {
+    font-size: 70px;
+    font-weight: 100;
+    line-height: 1;
+}
+
+.temperature span {
+    font-size: 40px;
+    margin-top: -10px;
+    display: block;
+}
+
+.todays-img {
+    width: 250px;
+    height: 250px;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    margin: 20px 0;
+    background-color: gray;
+}
+
+.main_display {
+    width: 100%;
+    min-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 20px 40px;
+    background-color: rgba(255, 255, 255, 0.904);
+}
+
+.main_display nav {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+nav .options {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.options button {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+}
+
+.options button.active {
+    color: cornflowerblue;
+}
+
+
+.main_display .cards {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+    display: flex;
+
+}
+
+.cards .card {
+    width: 40rem;
+    height: 15rem;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+
+}
+
+.cards .card .day {
+    padding: 12px;
+}
+
+.card .text-side {
+    justify-content: space-around;
+    align-items: center;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px;
+}
+
+.highlights .heading {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.highlights .card2 {
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.cards .card2 .card-heading {
+    color: #8b8a8a;
+}
+
+.card2 .content {
+    margin-top: 20px;
+}
+
+.card2 .content p:first-child {
+    text-align: center;
+    font-size: 30px;
+}
+
+.card2 .content p:last-child {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.forecast {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px;
+
+}
+
+.forecast .heading {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.text-side .city-name {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 20px 30px;
+}
+
+.view_content {
+    display: none;
+    animation: moving .7s ease;
+}
+
+@keyframes moving {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.active {
+    display: block;
+}
+
+
+/* Week carts stylings */
+.forecast-image-container {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.forecast-image-container>img {
+    height: 100%;
+
+}
+
+#card2 {
+    height: 200px;
+    width: 300px;
+}
+
+.forecast-txt {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#my-chart {
+    width: 40rem;
+    height: 15rem;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}

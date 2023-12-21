@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="”en”">
+  <head>
+    <meta charset="”UTF-8”" />
+    <meta
+      name="”viewport”"
+      content="”width"
+      ="device-width,"
+      initial-scale="1.0”"
+    />
+    <title>MeteoPro</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <p class="logo">Breeze.com</p>
+      <nav>
+        <!-- <ul class="nav_links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul> -->
+      </nav>
+    </header>
+
+    <main>
+      <section class="wrapper">
+        <div class="sidebar">
+          <div>
+            <form class="search" id="search">
+              <input
+                type="text"
+                id="query"
+                placeholder="Search..."
+                class="search-input-js"
+              />
+              <button class="search-button search-button-js">
+                <img src="Assets/search.png" height="25px" width="25px" />
+              </button>
+            </form>
+            <div class="temperature">
+              <h1 id="temp" class="current-location-temp">0</h1>
+              <span class="temp-unit">&degC</span>
+            </div>
+            <div id="current-location-image-container">
+              <img
+                class="current-location-image"
+                src="Assets/storm.png"
+                alt="weather description"
+              />
+            </div>
+            <div class="date-time">
+              <p>Bambili</p>
+              <p id="date-time">Monday, 12:00</p>
+            </div>
+            <div class="divider"></div>
+          </div>
+          <div class="weather-symbols-meaning"></div>
+        </div>
+
+        <!-- Start Main Section-->
+        <div class="main_display">
+          <nav>
+            <ul class="options">
+              <button class="tab_btn active">Today</button>
+              <button class="tab_btn">Week</button>
+            </ul>
+          </nav>
+          <section class="view_content active">
+            <div class="forecast">
+              <h2 class="heading">Todays Forecast</h2>
+              <div class="cards" id="weather_details">
+                <!-- Cards -->
+                <form class="card">
+                  <div class="text-side">
+                    <div class="temperature">
+                      <h1 id="temp" class="todays-temp-js">0</h1>
+                      <span class="temp-unit">&degC</span>
+                    </div>
+                    <h1 class="city-name city-name-js">Location</h1>
+                  </div>
+
+                  <div class="image-side">
+                    <img
+                      src="Assets/clear.png"
+                      alt="weather description"
+                      class="todays-img-js todays-img"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Highlight section -->
+            <div class="highlights">
+              <h2 class="heading">Today's highlights</h2>
+              <!-- Cards in the highlights section -->
+              <div class="cards">
+                <div class="card2">
+                  <h4 class="card-heading">Wind Speed</h4>
+                  <div class="content">
+                    <p class="uv-index">
+                      <span class="wind-speed-value-js">0</span><span>m/s</span>
+                    </p>
+                    <p class="uv-text">Meters per second</p>
+                  </div>
+                </div>
+                <div class="card2">
+                  <h4 class="card-heading">Pressure</h4>
+                  <div class="content">
+                    <p class="uv-index">
+                      <span class="pressure-value-js">0</span><span>hPa</span>
+                    </p>
+                    <p class="uv-text">Hectopascal</p>
+                  </div>
+                </div>
+                <div class="card2">
+                  <h4 class="card-heading">Visibility</h4>
+                  <div class="content">
+                    <p class="uv-index">
+                      <span class="visibility-value-js">0</span><span>m</span>
+                    </p>
+                    <p class="uv-text">Meters</p>
+                  </div>
+                </div>
+                <div class="card2">
+                  <h4 class="card-heading">Humidity</h4>
+                  <div class="content">
+                    <p class="uv-index">
+                      <span class="humidity-value-js">0</span><span>%</span>
+                    </p>
+                    <p class="uv-text">Percentage</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Week display -->
+          <section class="view_content" id="week-content">
+            <form class="card" id="chart-card">
+              <canvas id="chart"></canvas>
+            </form>
+            <div class="highlights">
+              <h2 class="heading">Week's highlights</h2>
+              <div class="cards" id="cards">
+                <div class="card2" id="card2">
+                  <h4 class="card-heading">Today</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img1"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp1">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind1">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+                <div class="card2" id="card2">
+                  <h4 class="card-heading">Tomorrow</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img2"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp2">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind2">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+                <div class="card2" id="card2">
+                  <h4 class="card-heading forecast-heading3">1day After</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img3"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp3">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind3">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+                <div class="card2" id="card2">
+                  <h4 class="card-heading forecast-heading4">2days After</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img4"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp4">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind4">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+                <div class="card2" id="card2">
+                  <h4 class="card-heading forecast-heading5">3days After</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img5"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp5">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind5">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+                <div class="card2" id="card2">
+                  <h4 class="card-heading forecast-heading6">4days After</h4>
+                  <div class="content">
+                    <div class="forecast-image-container">
+                      <img
+                        class="forecast-img6"
+                        src="Assets/clear.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="forecast-txt">
+                      Temperature:
+                      <span class="forecast-temp6">0</span>&deg;c<br />
+                      <hr />
+                      Wind-Speed: <span class="forecast-wind6">0</span>m/s
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script>
+      const tabs = document.querySelectorAll(".tab_btn");
+      const all_content = document.querySelectorAll(".view_content");
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((tab) => {
+            tab.classList.remove("active");
+          });
+          tab.classList.add("active");
+          all_content.forEach((content) => {
+            content.classList.remove("active");
+          });
+          all_content[index].classList.add("active");
+        });
+      });
+
+      //images on sidebar
+      let imgArray = [
+        "clear",
+        "clouds",
+        "drizzle",
+        "humidity",
+        "mist",
+        "rain",
+        "snow",
+        "storm",
+        "wind",
+      ];
+      imgArray.forEach((i) => {
+        document.querySelector(
+          ".weather-symbols-meaning"
+        ).innerHTML += `<div><img src='Assets/${i}.png'>${i}</div>`;
+      });
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+    <!-- <script>
+      const ctx = document.getElementById("my-chart");
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script> -->
+    <script src="script/index.js"></script>
+  </body>
+</html>
